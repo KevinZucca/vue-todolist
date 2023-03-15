@@ -25,12 +25,19 @@ createApp({
   },
 
   methods: {
-    deleteItem(justDone) {
+    doneItem(justDone) {
        justDone.done = !justDone.done;
     },
 
     addItem() {
-        this.todoList.push({text:this.inputValue, done: false})
+        if (this.todoList.length < 7) {
+            this.todoList.push({text:this.inputValue, done: false})
+            this.inputValue = "";
+        }
+    },
+
+    deleteItem(canceledIndex) {
+        this.todoList.splice(canceledIndex, 1)
     }
 
   }

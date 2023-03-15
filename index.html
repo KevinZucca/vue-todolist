@@ -7,6 +7,9 @@
     <title>todolist</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Sono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -15,12 +18,20 @@
         <div id="main-container">
             <ul>
                 <li v-for="(todo, index) in todoList" :class="todo.done == true ? 'text-through' : '' ">
-                    {{todo.text}} <span @click="deleteItem(todo)"><i class="fa-regular fa-circle-xmark"></i></span>
+                    <span @click="doneItem(todo)"><i class="fa-solid fa-pencil"></i></span> {{todo.text}} <span @click="deleteItem(index)"><i class="fa-solid fa-x"></i></span>
                 </li>
             </ul>
             <div class="add container">
                 <input v-model="inputValue" @keyup.enter="addItem()" id="input-todo" type="text">
                 <button @click="addItem()" id="todo-button">Add</button>
+            </div>
+
+            <div id="post-it-container">
+                <div id="post-it-message">
+                    <p>Is there <br> anything else?</p>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                <img src="https://th.bing.com/th/id/R.b2449928311d0c325815e3038043a395?rik=t86yED6Oy9M80w&pid=ImgRaw&r=0" alt="">
             </div>
         </div>
 
