@@ -16,7 +16,9 @@ createApp({
             text: "Bring the car to the mechanic",
             done: true,
         }
-      ]
+      ],
+
+      inputValue: "",
 
 
     }
@@ -25,6 +27,10 @@ createApp({
   methods: {
     deleteItem(todoIndex) {
         this.todoList.splice(todoIndex, 1)
+    },
+
+    addItem() {
+        this.todoList.push({text:this.inputValue, done: true})
     }
 
   }

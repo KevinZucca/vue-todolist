@@ -6,4 +6,21 @@
     margin-top: 100px;
     text-align: center;
     list-style-position: inside;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+#add-container {
+    display: flex;
+    justify-content: center;
+}
+
+#input-todo {
+    align-self: center;
+    width: 200px;
+}
+
+#todo-button {
+    width: 50px;
 }
