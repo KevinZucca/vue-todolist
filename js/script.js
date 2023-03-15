@@ -6,7 +6,7 @@ createApp({
       todoList: [
         {
             text: "Go to the gym",
-            done: true,
+            done: false,
         },
         {
             text: "Home cleaning",
@@ -14,7 +14,7 @@ createApp({
         },
         {
             text: "Bring the car to the mechanic",
-            done: true,
+            done: false,
         }
       ],
 
@@ -25,12 +25,12 @@ createApp({
   },
 
   methods: {
-    deleteItem(todoIndex) {
-        this.todoList.splice(todoIndex, 1)
+    deleteItem(justDone) {
+       justDone.done = !justDone.done;
     },
 
     addItem() {
-        this.todoList.push({text:this.inputValue, done: true})
+        this.todoList.push({text:this.inputValue, done: false})
     }
 
   }

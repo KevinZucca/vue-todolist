@@ -15,11 +15,11 @@
         <div id="main-container">
             <ul>
                 <li v-for="(todo, index) in todoList" :class="todo.done == true ? 'text-through' : '' ">
-                    {{todo.text}} <span @click="deleteItem(index)"><i class="fa-regular fa-circle-xmark"></i></span>
+                    {{todo.text}} <span @click="deleteItem(todo)"><i class="fa-regular fa-circle-xmark"></i></span>
                 </li>
             </ul>
             <div class="add container">
-                <input v-model="inputValue" id="input-todo" type="text">
+                <input v-model="inputValue" @keyup.enter="addItem()" id="input-todo" type="text">
                 <button @click="addItem()" id="todo-button">Add</button>
             </div>
         </div>
